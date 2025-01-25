@@ -15,7 +15,6 @@ body {
   overflow: hidden;
 }
 
-/* Wrapper for Forms */
 .wrapper {
   position: relative;
   width: 400px;
@@ -30,9 +29,7 @@ body {
   align-items: center;
 }
 
-/* Blob Background */
 
-/* Form Styling */
 .form {
   width: 100%;
   padding: 20px;
@@ -87,7 +84,7 @@ h2 {
   transform: translateY(-50%);
   font-size: 1em;
   pointer-events: none;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .input-box input:focus ~ label,
@@ -184,10 +181,8 @@ button:hover {
   width: 520px;
   height: 520px;
   filter: blur(30px);
-  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.6), 
-            inset 100px 100px 0 0 #fa709a,
-            inset 200px 200px 0 0 #784ba8, 
-            inset 300px 300px 0 0 #2b86c5;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.6), inset 100px 100px 0 0 #fa709a,
+    inset 200px 200px 0 0 #784ba8, inset 300px 300px 0 0 #2b86c5;
 }
 
 @keyframes animateBlob {
