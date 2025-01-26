@@ -23,4 +23,3 @@ function adjustWrapperHeight() {
   wrapper.style.height = `${activeForm.scrollHeight}px`;
 }
 adjustWrapperHeight();
-

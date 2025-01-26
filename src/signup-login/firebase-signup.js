@@ -45,7 +45,7 @@ signupButton.addEventListener("click", function (event) {
       // Signed up successfully
       const user = userCredential.user;
       alert("User signed up successfully");
-      window.location.href = "https://www.youtube.com/"; // Redirect to a different page
+      window.location.href = "../landing-page/index.html"; // Redirect to a different page
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -65,7 +65,7 @@ loginButton.addEventListener("click", function (event) {
       .then((userCredential) => {
         const user = userCredential.user;
         alert("User logged in successfully");
-        window.location.href = "https://www.youtube.com/"; // Redirect to a different page
+        window.location.href = "../landing-page/index.html"; // Redirect to a different page
       })
       .catch((error) => {
         const errorMessage = error.message;
