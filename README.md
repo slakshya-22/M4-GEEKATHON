@@ -34,13 +34,6 @@ This is a web application designed to help users build their resumes, get job su
 
 5. Use the resume builder to add your details, and explore job suggestions and project ideas.
 
-## Project Structure
-
-- `index.html`: The main HTML file that contains the structure of the website.
-- `style.css`: Contains the styles for the website, including animations.
-- `script.js`: Contains the JavaScript code for the functionality of the resume builder, job suggestions, and project ideas.
-- `firebase.js`: Firebase setup for user authentication.
-- `assets/`: Contains images, icons, and other media used in the website.
 
 ## Screenshots
 
