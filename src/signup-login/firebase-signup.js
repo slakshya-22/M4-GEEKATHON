@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCo-z0Jpd771vQF6WbSXGhg8VFKcp-koRs",
@@ -129,4 +129,37 @@ loginButton.addEventListener("click", function (event) {
         text: errorMessage,
       });
     });
+});
+
+// Handle password reset (forgot password)
+const forgotPasswordButton = document.getElementById("forgotPassword");
+forgotPasswordButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  const email = document.getElementById("email").value;  // The email entered for password reset
+
+  if (email) {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Password reset email sent! Please check your inbox.',
+        });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: errorMessage,
+        });
+      });
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Please enter your email to reset your password.',
+    });
+  }
 });
