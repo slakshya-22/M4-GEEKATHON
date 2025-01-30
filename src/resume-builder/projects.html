@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Ideas</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        width: 80%;
+        max-width: 800px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        animation: fadeIn 0.6s ease-in-out;
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        color: #fff;
+      }
+
+      p {
+        font-size: 18px;
+        color: #eee;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+
+      ul li {
+        background: rgba(255, 255, 255, 0.3);
+        margin: 10px 0;
+        padding: 12px;
+        border-radius: 8px;
+        transition: 0.3s ease-in-out;
+        text-align: left;
+      }
+
+      ul li:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      ul li a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #fff;
+        transition: 0.3s;
+      }
+
+      ul li a:hover {
+        color: #ffdf40;
+      }
+
+      .back-btn {
+        display: inline-block;
+        margin-top: 20px;
+        background: #ff4757;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-btn:hover {
+        background: #e84118;
+        transform: scale(1.05);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Project Ideas</h1>
+      <p>
+        Based on your skills, here are some open-source projects you can
+        contribute to: (Wait after hitting search)
+      </p>
+
+      <ul id="projectsList"></ul>
+
+      <button onclick="goBack()" class="back-btn">Go Back</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const skills = params.get("skills");
+
+        if (!skills) {
+          document.getElementById("projectsList").innerHTML =
+            "<p>No skills provided.</p>";
+          return;
+        }
+
+        fetchGitHubProjects(skills);
+      });
+
+      function fetchGitHubProjects(skills) {
+        const skillArray = skills.split(",");
+        const query = skillArray.map((skill) => skill.trim()).join("+");
+        const apiUrl = `https://api.github.com/search/repositories?q=${query}+stars:>10&sort=stars&order=desc`;
+
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const projectsList = document.getElementById("projectsList");
+            projectsList.innerHTML = "";
+
+            if (data.items.length === 0) {
+              projectsList.innerHTML = "<p>No projects found.</p>";
+              return;
+            }
+
+            data.items.slice(0, 10).forEach((project) => {
+              const listItem = document.createElement("li");
+              listItem.innerHTML = `<a href="${
+                project.html_url
+              }" target="_blank">${project.name}</a> - ${
+                project.description || "No description available."
+              }`;
+              projectsList.appendChild(listItem);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching projects:", error);
+            document.getElementById("projectsList").innerHTML =
+              "<p>Failed to fetch projects.</p>";
+          });
+      }
+
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </body>
+</html>

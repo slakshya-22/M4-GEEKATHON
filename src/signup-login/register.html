@@ -33,7 +33,7 @@
             </div>
             <div class="remember-forgot">
               <label><input type="checkbox" /> Remember me</label>
-              <a href="#" id="resetPassword">Forgot Password?</a>
+              <a href="#" id="forgotPassword">Forgot Password?</a>
             </div>
             <button type="submit" id="login">Login</button>
             <div class="register-link">
@@ -65,7 +65,7 @@
             </div>
             <div class="input-box">
               <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-              <input type="password" required id="confirmPassword"/>
+              <input type="password" required id="rePassword"/>
               <label for="">Confirm Password</label>
             </div>
             <button type="submit" id="signup">Signup</button>
@@ -79,7 +79,9 @@
       </div>
     </div>
 
-    <!-- Include the HTML structure as you've written it -->
+    <!-- Loader -->
+<div id="loading" class="loader" style="display: none;"></div>
+
 
     <script src="register.js"></script>
 
@@ -92,5 +94,9 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   </body>
 </html>

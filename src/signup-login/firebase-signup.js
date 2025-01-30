@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
@@ -14,45 +13,82 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// Handle user signup
 const signupButton = document.getElementById("signup");
 signupButton.addEventListener("click", function (event) {
   event.preventDefault();
 
   const email = document.getElementById("semail").value;
   const password = document.getElementById("spassword").value;
+  const rePassword = document.getElementById("rePassword").value;
 
-  console.log("Email:", email);
-  console.log("Password:", password);
+  // Validate both passwords match
+  if (password !== rePassword) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Passwords do not match.',
+    });
+    return;
+  }
 
+  // Validate email and password
   if (!email || !password) {
-    alert("Please enter both email and password.");
-    return; 
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Please enter both email and password.',
+    });
+    return;
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    alert("Please enter a valid email address.");
-    return; 
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Please enter a valid email address.',
+    });
+    return;
   }
 
   if (password.length < 6) {
-    alert("Password should be at least 6 characters.");
-    return; 
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Password should be at least 6 characters.',
+    });
+    return;
   }
 
+  // Create user with Firebase
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed up successfully
       const user = userCredential.user;
-      alert("User signed up successfully");
-      window.location.href = "../landing-page/index.html"; // Redirect to a different page
+
+      // Show success message
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'User signed up successfully.',
+      });
+
+      // Redirect to loading page after a short delay
+      setTimeout(() => {
+        window.location.href = "loading.html"; // Redirect to loading page
+      }, 2000); // Delay of 2 seconds
     })
     .catch((error) => {
       const errorMessage = error.message;
-      alert("Error: " + errorMessage);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: errorMessage,
+      });
     });
 });
 
+// Handle user login
 const loginButton = document.getElementById("login");
 loginButton.addEventListener("click", function (event) {
   event.preventDefault();
@@ -60,31 +96,37 @@ loginButton.addEventListener("click", function (event) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  if (email && password) {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        alert("User logged in successfully");
-        window.location.href = "../landing-page/index.html"; // Redirect to a different page
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert("Error: " + errorMessage);
-      });
-  } else {
-    alert("Please enter both email and password.");
+  if (!email || !password) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Please enter both email and password.',
+    });
+    return;
   }
-});
 
-const showSignup = document.getElementById("showSignup");
-const showLogin = document.getElementById("showLogin");
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
 
-showSignup.addEventListener("click", function () {
-  document.querySelector(".login").classList.remove("active");
-  document.querySelector(".signup").classList.add("active");
-});
+      // Show success message
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'User logged in successfully.',
+      });
 
-showLogin.addEventListener("click", function () {
-  document.querySelector(".signup").classList.remove("active");
-  document.querySelector(".login").classList.add("active");
+      // Redirect to loading page after a short delay
+      setTimeout(() => {
+        window.location.href = "loading.html"; // Redirect to loading page
+      }, 2000); // Delay of 2 seconds
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: errorMessage,
+      });
+    });
 });

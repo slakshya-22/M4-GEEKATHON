@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  .container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .personal-details, .resume-preview {
+    width: 45%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .form-col {
+    flex: 1;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .resume {
+    text-align: center;
+  }
+  
+  .resume-header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .resume-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 10px auto;
+  }
+  
+  .resume-body {
+    margin-top: 20px;
+    text-align: left;
+    line-height: 1.5;
+  }
+  

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Suggestions - buildResume</title>
+    <link rel="icon" type="image/x-icon" href="../../img/logo.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+        <div class="content">
+          <div class="logo">
+            <a href="../landing-page/index.html"><img src="../../img/logo.png" alt="" /></a>
+            buildResume
+          </div>
+          <div class="hamburger" id="hamburger">☰</div>
+          <ul class="menu-list" id="menuList">
+            <li><a href="../landing-page/index.html">Home</a></li>
+            <li><a href="../job-suggestions/index.html" style="font-weight: bold; text-decoration: underline;">Job Suggestions</a></li>
+            <li><a href="../project-ideas/index.html">Project Ideas</a></li>
+            <button class="start-button" id="getStarted" style="display: none">
+              Get Started
+            </button>
+          </ul>
+        </div>
+      </nav>
+      
+    <div class="job-container">
+        <h1>🚀 Find Your Perfect Job</h1>
+        <p>Search for jobs based on your skills or interests (Wait after hitting search)</p>
+
+        <div class="search-box">
+            <input type="text" id="jobSearchInput" placeholder="Enter skill or job title...">
+            <button onclick="searchJobs()">🔍 Search</button>
+        </div>
+
+        
+          
+        <div id="jobResults" class="job-results"></div>
+    </div>
+
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>

@@ -106,9 +106,38 @@ body {
   border: 2px solid #210e33;
   color: #210e33;
 }
+.hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
 
-/* Media Queries for NAVBAR SECTION */
+@media screen and (max-width: 768px) {
+  .menu-list {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease-in-out;
+  }
 
+  .menu-list li {
+      padding: 10px;
+  }
+
+  .hamburger {
+      display: block;
+  }
+
+  .menu-list.show {
+      max-height: 300px; 
+  }
+}
 /* MAIN SECTION */
 
 main {

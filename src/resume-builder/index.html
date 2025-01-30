@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>buildResume - Get Started</title>
+    <link rel="icon" type="image/x-icon" href="../../img/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="content">
+        <div class="logo">
+          <a href="../landing-page/index.html"><img src="../../img/logo.png" alt="" /></a>
+          buildResume
+        </div>
+        <div class="hamburger" id="hamburger">☰</div>
+          <ul class="menu-list" id="menuList">
+          <li><a href="../landing-page/index.html">Home</a></li>
+          <li><a href="../job-suggestions/index.html">Job Suggestions</a></li>
+          <li><a href="../project-ideas/index.html">Project Ideas</a></li>
+          <button class="start-button" id="getStarted" style="display: none">
+            Get Started
+          </button>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Section -->
+    <main>
+      <!-- Personal Details -->
+      <section class="personal-details">
+        <div class="heading">
+          <h3>ABOUT SECTION</h3>
+        </div>
+        <div class="form-content">
+          <form action="" class="p-details-form form" id="p-details-form-id">
+            <div class="form-row">
+              <div class="form-col">
+                <h4>First Name</h4>
+                <input
+                  type="text"
+                  id="firstName"
+                  placeholder="e.g. John"
+                  required
+                />
+              </div>
+              <div class="form-col">
+                <h4>Middle Name (Optional)</h4>
+                <input type="text" id="midName" placeholder="e.g. Herbert" />
+              </div>
+              <div class="form-col">
+                <h4>Last Name</h4>
+                <input
+                  type="text"
+                  id="lastName"
+                  placeholder="e.g. Doe"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-col">
+                <h4>Your Image</h4>
+                <input type="file" id="image" accept="image/*" />
+              </div>
+              <div class="form-col">
+                <h4>Designation</h4>
+                <input
+                  type="text"
+                  id="designation"
+                  placeholder="e.g. Front-End Developer"
+                />
+              </div>
+              <div class="form-col">
+                <h4>Address</h4>
+                <input
+                  type="text"
+                  id="userAddress"
+                  placeholder="e.g. 24-A Lake Street"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-col">
+                <h4>Email</h4>
+                <input
+                  type="email"
+                  id="userEmail"
+                  placeholder="e.g. johndoe123@gmail.com"
+                />
+              </div>
+              <div class="form-col">
+                <h4>Phone No.</h4>
+                <input
+                  type="number"
+                  id="userPhone"
+                  placeholder="e.g. 987-543-102"
+                />
+              </div>
+              <div class="form-col">
+                <h4>Summary</h4>
+                <input
+                  type="text"
+                  id="summary"
+                  placeholder="e.g. expert in building websites"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Achievements -->
+      <section class="Achievements">
+        <div class="heading">
+          <h3>ACHIEVEMENTS</h3>
+        </div>
+        <div class="form-content">
+          <form action="" class="achvmnts-form form">
+            <div class="form-row">
+              <div class="form-col">
+                <h4>Title</h4>
+                <input
+                  type="text"
+                  id="userTitle"
+                  placeholder="e.g. Hackathon"
+                />
+              </div>
+              <div class="form-col">
+                <h4>Description</h4>
+                <input
+                  type="text"
+                  id="userDescription"
+                  placeholder="e.g. Hello world"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="Experience">
+        <div class="heading">
+          <h3>EXPERIENCE</h3>
+        </div>
+        <div class="form-content">
+          <form action="" class="exp form">
+            <div class="form-row">
+              <div class="form-col">
+                <h4>Title</h4>
+                <input
+                  type="text"
+                  id="userExpTitle"
+                  placeholder="e.g. Internship"
+                />
+              </div>
+              <div class="form-col">
+                <h4>Company / Organisation</h4>
+                <input type="text" id="userComp" placeholder="e.g. Accenture" />
+              </div>
+              <div class="form-col">
+                <h4>Location</h4>
+                <input
+                  type="text"
+                  id="userCompLoc"
+                  placeholder="e.g. California"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-col">
+                <h4>Start Date</h4>
+                <input type="date" id="userStartDate" />
+              </div>
+              <div class="form-col">
+                <h4>End Date</h4>
+                <input type="date" id="userEndDate" />
+              </div>
+              <div class="form-col">
+                <h4>Description</h4>
+                <input type="text" id="userExpDesc" placeholder="e.g. abcd" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="Education">
+        <div class="heading">
+          <h3>EDUCATION</h3>
+        </div>
+        <div class="form-content">
+          <form action="" class="edu form">
+            <div class="form-row">
+              <div class="form-col">
+                <h4>School / College</h4>
+                <input
+                  type="text"
+                  id="userEduTitle"
+                  placeholder="e.g. Harvard University"
+                />
+              </div>
+              <div class="form-col">
+                <h4>Degree</h4>
+                <input
+                  type="text"
+                  id="userDegree"
+                  placeholder="e.g. Accenture"
+                />
+              </div>
+              <div class="form-col">
+                <h4>City</h4>
+                <input
+                  type="text"
+                  id="userEduCity"
+                  placeholder="e.g. California"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-col">
+                <h4>Start Date</h4>
+                <input type="date" id="userEduStartDate" />
+              </div>
+              <div class="form-col">
+                <h4>End Date</h4>
+                <input type="date" id="userEduEndDate" />
+              </div>
+              <div class="form-col">
+                <h4>Description</h4>
+                <input type="text" id="userEduDesc" placeholder="e.g. abcd" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="project">
+        <div class="heading">
+          <h3>PROJECTS</h3>
+        </div>
+        <div class="form-content">
+          <form action="" class="project form">
+            <div class="form-row">
+              <div class="form-col">
+                <h4>Project Name</h4>
+                <input
+                  type="text"
+                  id="userProjName"
+                  placeholder="e.g. Expense Tracker"
+                />
+              </div>
+              <div class="form-col">
+                <h4>Project Link</h4>
+                <input
+                  type="text"
+                  id="userProjID"
+                  placeholder="e.g. Github Hosted Link"
+                />
+              </div>
+              <div class="form-col">
+                <h4>Description</h4>
+                <input
+                  type="text"
+                  id="userProjDesc"
+                  placeholder="e.g. Small Description"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="skills">
+        <div class="heading">
+          <h3>SKILLS</h3>
+        </div>
+        <div class="form-content">
+          <form action="" class="skillsForm form">
+            <div class="form-row">
+              <div class="form-col" style="width: 100%">
+                <h4>Skills (comma-separated)</h4>
+                <input
+                  type="text"
+                  id="userSkills"
+                  placeholder="e.g. ReactJS"
+                  style="width: 97%"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <section class="resume-container">
+      <div class="resume">
+        <div class="resume-header">
+          <img id="resumeImage" src="" alt="Profile Image" />
+          <h2 id="resumeName">Your Name</h2>
+          <p id="resumeDesignation">Your Designation</p>
+          <p id="resumeEmail">Email: your.email@example.com</p>
+          <p id="resumePhone">Phone: 123-456-7890</p>
+          <p id="resumeAddress">Address: Your Address</p>
+        </div>
+        <div class="resume-body">
+          <h3>Summary</h3>
+          <p id="resumeSummary">Your summary goes here...</p>
+
+          <h3>Achievements</h3>
+          <p id="resumeAchievements">Your achievements go here...</p>
+
+          <h3>Experience</h3>
+          <p id="resumeExperience">Your experience goes here...</p>
+
+          <h3>Education</h3>
+          <p id="resumeEducation">Your education details go here...</p>
+
+          <h3>Projects</h3>
+          <p id="resumeProjects">Your projects go here...</p>
+
+          <h3>Skills</h3>
+          <p id="resumeSkills">Your skills go here...</p>
+        </div>
+      </div>
+    </section>
+    
+
+    <hr>
+
+
+    <div class="buttons-section" style="margin: 20px 150px;">
+    <button class="design-toggle" onclick="toggleDesign()">
+      🎨 Change Design
+    </button>
+    <button class="pdf-button" onclick="printResume()">📄 Download PDF</button>
+
+
+    <h3 style="border: 2px dotted black; display: inline-block;">Find jobs based on your skillset</h3>
+    <button class="find-jobs-btn" onclick="redirectToJobs()">🚀 Find Jobs</button>
+    <h3 style="border: 2px dotted black; display: inline-block;">Find project ideas based on your skillset</h3>
+    <button id="projectIdeasBtn" onclick="redirectToProjects()">🚀 Project Ideas</button>
+
+  </div>
+
+    <script>
+      function redirectToJobs() {
+        let skills = document.getElementById("skillsInput").value.trim();
+        if (!skills) {
+          alert("Please enter at least one skill.");
+          return;
+        }
+        window.location.href = `jobs.html?skills=${encodeURIComponent(skills)}`;
+      }
+    </script>
+
+    <script src="script.js"></script>
+    <script src="../landing-page/script.js"></script>
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+  </body>
+</html>

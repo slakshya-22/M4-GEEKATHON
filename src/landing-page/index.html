@@ -21,19 +21,19 @@
   <body>
     <nav class="navbar">
       <div class="content">
-        <div class="logo">
-          <a href="#"><img src="../../img/logo.png" alt="" /></a>
-          buildResume
-        </div>
-        <ul class="menu-list">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Templates</a></li>
-          <li><a href="#">Job Suggestions</a></li>
-          <li><a href="#">Project Ideas</a></li>
-          <button class="start-button" id="getStarted">Get Started</button>
-        </ul>
+          <div class="logo">
+              <a href="#"><img src="../../img/logo.png" alt="Logo"></a>
+              buildResume
+          </div>
+          <div class="hamburger" id="hamburger">☰</div>
+          <ul class="menu-list" id="menuList">
+              <li><a href="#" class="active" style="font-weight: bold; text-decoration: underline;">Home</a></li>
+              <li><a href="../job-suggestions/index.html">Job Suggestions</a></li>
+              <li><a href="../project-ideas/index.html">Project Ideas</a></li>
+              <li><a href="../resume-builder/index.html"><button class="start-button">Get Started</button></a></li>
+          </ul>
       </div>
-    </nav>
+  </nav>
 
     <main>
       <section class="hero-section">
@@ -43,11 +43,10 @@
             Take Your Career to New Heights with our AI-Boosted All-in-One
             Platform. Start for Free and Elevate with Premium Options.
           </p>
-          <button class="hero-button" id="getStarted">
+          <button class="hero-button" id="getStarted" onclick="window.location.href='../resume-builder/index.html';">
             Get Started - Its Free ✨
           </button>
         </div>
-
         <div class="hero-right">
           <img src="../../img/hero-right.webp" alt="" />
         </div>
@@ -155,7 +154,7 @@
             Whether for resumes, cover letters, personal websites, or more, our
             customizable templates help you make a lasting impact.
           </p>
-          <button class="hero-button" id="getStarted">
+          <button class="hero-button" id="getStarted" style="display: none;">
             See all templates ✨
           </button>
         </div>
@@ -225,7 +224,7 @@
         Unveil your full potential with our user-friendly, non-scammy resume
         maker and career tools. Start for free and enhance with premium options.
       </p>
-      <button class="hero-button" id="getStarted">Get Started now 🚀</button>
+      <button class="hero-button" id="getStarted" onclick="window.location.href='../resume-builder/index.html'">Get Started now 🚀</button>
     </section>
 
     <!-- Footer -->
@@ -255,5 +254,6 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    
   </body>
 </html>

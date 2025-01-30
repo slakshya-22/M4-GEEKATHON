@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Suggestions</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        color: #fff;
+        line-height: 1.6;
+        padding: 20px;
+      }
+      h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      p {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 30px;
+        color: #ffecb3;
+      }
+      #jobList {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      #jobList li {
+        background: #1c1c1c;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+        width: 300px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      #jobList li:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+      }
+      #jobList li strong {
+        font-size: 1.4rem;
+        color: #ff7e5f;
+        display: block;
+        margin-bottom: 10px;
+      }
+      #jobList li a {
+        text-decoration: none;
+        color: #feb47b;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 15px;
+        border: 2px solid #feb47b;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+      #jobList li a:hover {
+        background: #feb47b;
+        color: #1c1c1c;
+        transform: translateY(-3px);
+      }
+      @media (max-width: 768px) {
+        #jobList li {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Job Suggestions Based on Your Skills (Wait after hitting search)</h2>
+    <p id="skillsDisplay"></p>
+    <ul id="jobList"></ul>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const skills = urlParams.get("skills");
+
+        if (skills) {
+          document.getElementById(
+            "skillsDisplay"
+          ).innerText = `Skills: ${skills}`;
+
+          fetchJobs(skills);
+        } else {
+          document.getElementById("skillsDisplay").innerText =
+            "No skills provided.";
+        }
+      });
+
+      async function fetchJobs(skills) {
+        const apiKey = "c702f5130cmshf015b655c4cd2ecp12af38jsndac6e386e09b";
+        const skillsArray = skills.split(",").map((skill) => skill.trim());
+
+        const query = skillsArray.join(" OR ");
+
+        const apiUrl = `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(
+          query
+        )}&page=1&num_pages=1&country=us&date_posted=all`;
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: "GET",
+            headers: {
+              "X-RapidAPI-Key": apiKey,
+              "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log(data);
+          displayJobs(data.data);
+        } catch (error) {
+          console.error("Error fetching jobs:", error);
+        }
+      }
+
+      function displayJobs(jobs) {
+        const jobList = document.getElementById("jobList");
+        jobList.innerHTML = "";
+
+        if (jobs.length === 0) {
+          jobList.innerHTML = "<li>No matching jobs found</li>";
+          return;
+        }
+
+        jobs.forEach((job) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+      <strong>${job.job_title}</strong> at ${job.employer_name} <br>
+      🌍 Location: ${job.job_city || "Not specified"} <br>
+      🔗 <a href="${job.job_apply_link}" target="_blank">Apply Now</a>
+    `;
+          jobList.appendChild(li);
+        });
+      }
+    </script>
+  </body>
+</html>

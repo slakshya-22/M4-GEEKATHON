@@ -1,0 +1,578 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f0eeeb;
+}
+
+.navbar {
+  background: transparent;
+  position: fixed;
+  z-index: 5;
+  width: 90%;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 10px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.navbar:hover {
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar .logo img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  background: #f7f7fa;
+  border-radius: 10px;
+}
+
+.navbar .logo a {
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.navbar .menu-list {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+}
+
+.menu-list li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.menu-list li a:hover {
+  text-decoration: underline;
+  font-size: 1.128rem;
+  font-weight: 600;
+}
+
+.start-button {
+  width: 196px;
+  height: 60px;
+  border-radius: 10px;
+  color: #fff;
+  background: #210e33;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.start-button:hover {
+  background: #fff;
+  border: 2px solid #210e33;
+  color: #210e33;
+}
+.hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-list {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease-in-out;
+  }
+
+  .menu-list li {
+      padding: 10px;
+  }
+
+  .hamburger {
+      display: block;
+  }
+
+  .menu-list.show {
+      max-height: 300px; 
+  }
+}
+
+/* MAIN SECTION */
+
+main {
+  margin-top: 100px;
+  padding: 60px 150px;
+}
+
+/* Personal Details */
+
+.heading {
+  color: white;
+  background-color: #210e33;
+  padding: 10px 20px;
+  letter-spacing: 5px;
+}
+
+.form-content {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.form-content .form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-content .form-col {
+  width: 50%;
+}
+
+.form-content .form-col h4 {
+  margin-bottom: 5px;
+}
+
+.form-content form .form-col input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 1.6rem;
+  background-color: transparent;
+  width: 90%;
+}
+
+/* Smooth transitions for adding/removing forms */
+.form-content form {
+  transition: opacity 1s ease, transform 1s ease-in-out;
+}
+
+/* + - Button */
+.add-btn,
+.remove-btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-btn:hover,
+.remove-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.add-btn:active,
+.remove-btn:active {
+  background-color: #003f7f;
+  transform: scale(0.95);
+}
+
+.add-btn {
+  background-color: #28a745;
+}
+
+.add-btn:hover {
+  background-color: #218838;
+}
+
+.add-btn:active {
+  background-color: #1e7e34;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+}
+
+.remove-btn:hover {
+  background-color: #c82333;
+}
+
+.remove-btn:active {
+  background-color: #bd2130;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+  main {
+    padding: 40px 80px;
+  }
+
+  .form-content {
+    padding: 15px;
+  }
+
+  .form-content .form-row {
+    flex-direction: column;
+  }
+
+  .form-content .form-col {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .add-btn,
+  .remove-btn {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .heading h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* For mobile devices (screen width between 480px and 768px) */
+@media only screen and (max-width: 768px) and (min-width: 480px) {
+  main {
+    padding: 30px 60px;
+  }
+
+  .form-content {
+    padding: 10px;
+  }
+
+  .form-content .form-row {
+    flex-direction: column;
+  }
+
+  .form-content .form-col {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .add-btn,
+  .remove-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .heading h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* For smaller mobile devices (screen width below 480px) */
+@media only screen and (max-width: 480px) {
+  main {
+    padding: 20px 30px;
+  }
+
+  .form-content {
+    padding: 10px;
+  }
+
+  .form-content .form-row {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .form-content .form-col {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .add-btn,
+  .remove-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .heading h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* General Resume Styling */
+.resume-container {
+  width: 70%;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.5s ease-in-out;
+}
+.resume-container img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
+/* 🎨 Design 1: Modern Glassmorphism */
+.resume-modern {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: #333;
+}
+
+.resume-modern .resume-header {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: white;
+  border-radius: 15px 15px 0 0;
+}
+
+.resume-modern .resume-header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
+/* 🔵 Design 2: Professional Corporate */
+.resume-professional {
+  background: #f4f4f4;
+  border: 2px solid #333;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  color: #222;
+}
+
+.resume-professional .resume-header {
+  text-align: left;
+  padding: 20px;
+  background: #0044cc;
+  color: white;
+}
+
+.resume-professional .resume-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+/* 🏆 Design 3: Elegant Minimal */
+.resume-elegant {
+  background: #ffffff;
+  border: 2px solid #4e54c8;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.resume-elegant .resume-header {
+  text-align: center;
+  padding: 20px;
+  background: #ffffff;
+  color: black;
+  border-bottom: 3px solid #4e54c8;
+}
+
+.resume-elegant .resume-header img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid #4e54c8;
+}
+
+/* 🔥 Design 4: Dark Futuristic */
+.resume-dark {
+  background: #121212;
+  color: white;
+  border: 2px solid #4e54c8;
+  box-shadow: 0 10px 40px rgba(78, 84, 200, 0.5);
+}
+
+.resume-dark .resume-header {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #222, #444);
+  color: white;
+}
+
+.resume-dark .resume-header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #4e54c8;
+}
+
+/* 🎨 Toggle Button */
+.design-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.design-toggle:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .resume-container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+.pdf-button {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pdf-button:hover {
+  opacity: 0.8;
+}
+
+
+/* Jobs Button */
+.find-jobs-btn {
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  color: white;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(255, 118, 136, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.find-jobs-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.find-jobs-btn:hover::before {
+  transform: translateX(0);
+}
+
+.find-jobs-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 118, 136, 0.6);
+}
+
+.find-jobs-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 10px rgba(255, 118, 136, 0.4);
+}
+
+#projectIdeasBtn {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(255, 118, 136, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  margin: 20px;
+}
+
+#projectIdeasBtn:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(255, 126, 95, 0.6);
+}
+#projectIdeasBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+#projectIdeasBtn:hover::before {
+  transform: translateX(0);
+}
+
+#projectIdeasBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 118, 136, 0.6);
+}
+
+#projectIdeasBtn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 10px rgba(255, 118, 136, 0.4);
+}

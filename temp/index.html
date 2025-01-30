@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Resume</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <section class="personal-details">
+      <div class="form-content">
+        <form action="" class="p-details-form form" id="p-details-form-id">
+          <h2>Fill Your Details</h2>
+          <div class="form-row">
+            <div class="form-col">
+              <h4>First Name</h4>
+              <input type="text" id="firstName" placeholder="e.g. John" />
+            </div>
+            <div class="form-col">
+              <h4>Middle Name (Optional)</h4>
+              <input type="text" id="midName" placeholder="e.g. Herbert" />
+            </div>
+            <div class="form-col">
+              <h4>Last Name</h4>
+              <input type="text" id="lastName" placeholder="e.g. Doe" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <h4>Your Image</h4>
+              <input type="file" id="image" accept="image/*" />
+            </div>
+            <div class="form-col">
+              <h4>Designation</h4>
+              <input type="text" id="designation" placeholder="e.g. Front-End Developer" />
+            </div>
+            <div class="form-col">
+              <h4>Address</h4>
+              <input type="text" id="userAddress" placeholder="e.g. 24-A Lake Street" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <h4>Email</h4>
+              <input type="email" id="userEmail" placeholder="e.g. johndoe123@gmail.com" />
+            </div>
+            <div class="form-col">
+              <h4>Phone No.</h4>
+              <input type="number" id="userPhone" placeholder="e.g. 987-543-102" />
+            </div>
+            <div class="form-col">
+              <h4>Summary</h4>
+              <textarea id="summary" placeholder="e.g. Expert in building websites"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="resume-preview">
+      <h2>Resume Preview</h2>
+      <div class="resume">
+        <div class="resume-header">
+          <div class="resume-name" id="displayName"></div>
+          <div class="resume-designation" id="displayDesignation"></div>
+        </div>
+        <div class="resume-image">
+          <img id="displayImage" src="" alt="Your Image" />
+        </div>
+        <div class="resume-body">
+          <p><strong>Address:</strong> <span id="displayAddress"></span></p>
+          <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+          <p><strong>Phone:</strong> <span id="displayPhone"></span></p>
+          <p><strong>Summary:</strong> <span id="displaySummary"></span></p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
